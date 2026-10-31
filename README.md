@@ -68,6 +68,19 @@ To increase the game depth and uniqueness of the game the order of cards in the 
 
 ### How to play your game
 
+#### Build and run (Odin rewrite)
+
+The game is being rewritten in [Odin](https://odin-lang.org). It needs the Odin compiler and the system SQLite library (`libsqlite3`).
+
+```sh
+odin build src -out:card-dungeon
+./card-dungeon
+```
+
+Run the tests with `odin test src/game` and `odin test src/store`.
+
+Game content is stored in `data/schema.sql` and `data/seed.sql`. Your saved Deck goes in `card_dungeon.db` next to the program. See `docs/adr/0001-sqlite-for-game-data.md`. The original C++ version is kept in `legacy-cpp/` for reference; the sections below describe it.
+
 ### Gameplay
 The gameplay is quite simple where when the player decide to start the game, the system will automatically set player to fight the monster from the first level. Player has to defeat the monster in order to go to the next level.
  
